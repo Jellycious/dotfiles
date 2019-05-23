@@ -7,8 +7,8 @@ echo $message >> sync.log
 
 status=$(git status)
 echo $status >> sync.log
-echo -e "\n"
+echo -e "\n" >> sync.log
 
-git add * > /dev/null
-git commit -m "sync: $timestamp" > /dev/null
-git push > /dev/null
+git add * 1> /dev/null
+git commit -m "sync: $timestamp" 1> /dev/null
+git push 1> /dev/null
