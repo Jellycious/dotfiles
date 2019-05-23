@@ -137,4 +137,9 @@ function ranger-cd {
 }
 
 # This binds Ctrl-O to ranger-cd:
+
 bind '"\C-o":"ranger-cd\C-m"'
+
+# DEPENDENCIES 
+# ranger-cd, 	ranger >=1.4.2 
+
