@@ -5,7 +5,7 @@ timestamp=$(date)
 message="SYNCING ON: $timestamp"
 echo $message >> sync.log
 
-status=$(git status)
+gitstatus=$(git status)
 echo $status >> sync.log
 echo -e "\n" >> sync.log
 
