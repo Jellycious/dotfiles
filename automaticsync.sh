@@ -4,8 +4,11 @@
 timestamp=$(date)
 message="SYNCING ON: $timestamp"
 echo $message >> sync.log
+
 status=$(git status)
 echo $status >> sync.log
+echo -e "\n"
+
 git add *
-git commit -m "daily commit $timestamp"
+git commit -m "sync: $timestamp"
 git push 

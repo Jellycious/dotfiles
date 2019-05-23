@@ -14,6 +14,7 @@ set tabstop=4
 set shiftwidth=4
 " Backup files
 " requires ~/.vimtmp folder exists
+" and also .backup, .swp and .undo folder
 set backupdir=~/.vimtmp/.backup//
 set directory=~/.vimtmp/.swp//
 set undodir=~/.vimtmp/.undo//
