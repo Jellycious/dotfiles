@@ -1,4 +1,4 @@
-" My Configuration:
+" My Configuration: Test
 " These are the vim settings I use 
 " Author: Jelle Meijer
 syntax on

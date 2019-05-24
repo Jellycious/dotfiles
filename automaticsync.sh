@@ -9,6 +9,6 @@ gitstatus=$(git status)
 echo $gitstatus >> sync.log
 echo -e "\n" >> sync.log
 
-git add * 
+git add --all 
 git commit -m "sync: $timestamp" 
 git push
