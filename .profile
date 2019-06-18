@@ -27,12 +27,3 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# Defines read markdown function for reading markdown files in zathura
-# Creates a temporary .pdf file
-rmd () {
-	inputfile=$1
-	outputfile=$(echo $1 | sed "s/.md/.pdf/g")
-	pandoc $inputfile -o $outputfile 
-	cat $outputfile | zathura -
-	rm $outputfile
-}
