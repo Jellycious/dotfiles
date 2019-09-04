@@ -4,6 +4,7 @@
 syntax on
 
 " Aesthetic settings
+" Requires the gruvbox.vim colorscheme!
 set termguicolors
 set title
 colorscheme gruvbox
