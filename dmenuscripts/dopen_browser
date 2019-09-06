@@ -1,0 +1,11 @@
+#!/bin/bash
+OPTION=$(echo -e "youtube\ngoogle\nreddit\nfacebook" | dmenu)
+echo $OPTION
+
+case $OPTION in 
+	"youtube") chromium-browser "www.youtube.com";;
+	"google") chromium-browser "www.google.com";;
+	"reddit") chromium-browser "www.reddit.com";;
+	"facebook") chromium-browser "www.facebook.com";;
+esac 
+

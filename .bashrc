@@ -143,5 +143,7 @@ bind '"\C-o":"ranger-cd\C-m"'
 # DEPENDENCIES 
 # ranger-cd, 	ranger >=1.4.2 
 
-#USE pip3 insteady of pip for python2.7
+#Instead of automatically using python2.* use python3.* 
 alias pip='pip3' 
+alias python='python3'
+
