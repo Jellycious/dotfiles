@@ -143,7 +143,25 @@ bind '"\C-o":"ranger-cd\C-m"'
 # DEPENDENCIES 
 # ranger-cd, 	ranger >=1.4.2 
 
-#Instead of automatically using python2.* use python3.* 
+#USE pip3 insteady of pip for python2.7
 alias pip='pip3' 
 alias python='python3'
+alias apython='/home/jelle/anaconda2/bin/python'
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/jelle/anaconda2/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/jelle/anaconda2/etc/profile.d/conda.sh" ]; then
+        . "/home/jelle/anaconda2/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/jelle/anaconda2/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# Make vim standard editor
+VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
 
