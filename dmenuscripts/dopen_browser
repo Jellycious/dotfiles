@@ -3,11 +3,11 @@ OPTION=$(echo -e "youtube\ngoogle\nreddit\nfacebook\ncancel" | dmenu)
 echo $OPTION
 
 case $OPTION in 
-	"youtube") chromium "www.youtube.com";;
-	"google") chromium "www.google.com";;
-	"reddit") chromium "www.reddit.com";;
-	"facebook") chromium "www.facebook.com";;
+	"youtube") chromium-browser "www.youtube.com";;
+	"google") chromium-browser "www.google.com";;
+	"reddit") chromium-browser "www.reddit.com";;
+	"facebook") chromium-browser "www.facebook.com";;
 	"cancel") ;;
-	*) chromium "www.$OPTION.com";;
+	*) chromium-browser "www.$OPTION.com";;
 esac 
 
