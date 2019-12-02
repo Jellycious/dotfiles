@@ -146,17 +146,17 @@ bind '"\C-o":"ranger-cd\C-m"'
 #USE pip3 insteady of pip for python2.7
 alias pip='pip3' 
 alias python='python3'
-alias apython='/home/jelle/anaconda2/bin/python'
+alias apython='/home/jelle/Programs/anaconda2/bin/python'
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jelle/anaconda2/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/jelle/Programs/anaconda2/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/jelle/anaconda2/etc/profile.d/conda.sh" ]; then
-        . "/home/jelle/anaconda2/etc/profile.d/conda.sh"
+    if [ -f "/home/jelle/Programs/anaconda2/etc/profile.d/conda.sh" ]; then
+        . "/home/jelle/Programs/anaconda2/etc/profile.d/conda.sh"
     else
-        export PATH="/home/jelle/anaconda2/bin:$PATH"
+        export PATH="/home/jelle/Programs/anaconda2/bin:$PATH"
     fi
 fi
 unset __conda_setup

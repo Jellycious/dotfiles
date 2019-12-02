@@ -1,11 +1,12 @@
 #!/bin/bash 
 # Shutdown script for dmenu, Jelle Meijer
-option=$(echo -e "shutdown\nreboot\nsuspend\ncancel" | dmenu)
+option=$(echo -e "shutdown\nreboot\nsuspend\nlog-out\ncancel" | dmenu)
 
 case $option in 
 	"shutdown") shutdown now;;
 	"reboot") shutdown -r now;;
 	"suspend") systemctl suspend;;
 	"cancel") shutdown -c;;
+	"log-out") i3-msg exit;;
 esac
 
