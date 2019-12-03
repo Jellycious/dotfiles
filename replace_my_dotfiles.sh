@@ -13,3 +13,6 @@ mkdir $HOME/.vimtmp/.backup
 mkdir $HOME/.vimtmp/.swp
 mkdir $HOME/.vimtmp/.undo
 ln .vimrc $HOME/.vimrc
+
+rm $HOME/.config/i3/config 
+ln i3config $HOME/.config/i3/config 
