@@ -186,3 +186,4 @@ bindsym $mod+p exec /home/jelle/Projects/dotfiles/dmenuscripts/dshutdown
 #print screen optionality
 bindsym Print exec --no-startup-id scrot -e 'mv $f /home/jelle/Pictures/Screenshots/$f'
 bindsym $mod+Print exec --no-startup-id scrot -s -e 'mv $f /home/jelle/Pictures/Screenshots/$f' 
+bindsym $mod+n exec --no-startup-id ffplay -nodisp /home/jelle/Music/SoundEffects/wobbly-alarm.mp3
