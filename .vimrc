@@ -2,7 +2,6 @@
 " These are the vim settings I use 
 " Author: Jelle Meijer
 syntax on
-
 " Aesthetic settings
 " Requires the gruvbox.vim colorscheme!
 set termguicolors
