@@ -27,3 +27,9 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+#Run programs on startup
+#Network manager applet
+nm-applet &
+# Flux
+fluxgui &
+

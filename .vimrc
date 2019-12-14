@@ -1,23 +1,79 @@
-" My Configuration: Test
+" My Configuration: python friendly, ranger, vundle
 " These are the vim settings I use 
 " Author: Jelle Meijer
-syntax on
 " Aesthetic settings
 " Requires the gruvbox.vim colorscheme!
+set encoding=utf-8
 set termguicolors
 set title
-colorscheme gruvbox
 set bg=dark
-
-" Indentation
+" Indentation and Numbering
 set tabstop=4
 set shiftwidth=4
+set expandtab
+set number
+
 " Backup files
 " requires ~/.vimtmp folder exists
 " and also .backup, .swp and .undo folder
 set backupdir=~/.vimtmp/.backup//
 set directory=~/.vimtmp/.swp//
 set undodir=~/.vimtmp/.undo//
+
+"Code Folding"
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
+"VUNDLE"
+
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+"put plugins below this line"
+"Python indentation"
+Plugin 'vim-scripts/indentpython.vim'
+"Auto completion"
+Plugin 'Valloric/YouCompleteMe'
+"Code Folding"
+Plugin 'tmhedberg/SimpylFold'
+"File explorer"
+Plugin 'scrooloose/nerdtree'
+"Syntax Highlighting"
+Plugin 'vim-syntastic/syntastic'
+"Search from inside vim"
+Plugin 'kien/ctrlp.vim'
+"Git integration"
+Plugin 'tpope/vim-fugitive'
+
+"color schemes"
+Plugin 'morhetz/gruvbox'
+
+call vundle#end()
+filetype plugin indent on
+"Set colorscheme"
+colorscheme gruvbox
+"Make sure YouCompleteMe does it thing correctly
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"Proper python indentation"
+au BufNewFile,BufRead *.py
+            \ set tabstop=4     |
+            \ set softtabstop=4 |
+            \ set shiftwidth=4  |
+            \ set expandtab     |
+            \ set autoindent    |
+            \ set fileformat=unix
+
+au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+"map NerdTree"
+map <C-n> :NERDTreeToggle<CR>
+"make code pretty"
+let python_highlight_all=1
+syntax on
 
 " RANGERCHOOSER "
 function! RangeChooser()
@@ -113,4 +169,5 @@ endif " has("autocmd")
 if has('syntax') && has('eval')
   packadd! matchit
 endif
+
 
