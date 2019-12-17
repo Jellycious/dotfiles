@@ -39,7 +39,7 @@ bindsym $mod+Return exec gnome-terminal --hide-menubar
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec "dmenu_run -nf '#FFFFFF' -nb '#2C001E' -sb '#E95420' -sf '#FFFFFF' -fn 'monospace-10'"
+bindsym $mod+d exec "dmenu_run -nf '#FFFFFF' -nb '#5E2750' -sb '#E95420' -sf '#FFFFFF' -fn 'monospace-10'"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -155,9 +155,9 @@ bindsym $mod+r mode "resize"
 
 #I3 colors
 # class                 border  bground text    indicator child_border
-client.focused          #38152C #2C001E #FFFFFF #E95420   #56334B
+client.focused          #38152C #2C001E #FFFFFF #6E3C61   #5E2750
 client.focused_inactive #333333 #411934 #FFFFFF #484E50   #5F676A
-client.unfocused        #333333 #411934 #888888 #292D2E   #222222
+client.unfocused        #333333 #56334B #888888 #292D2E   #222222
 client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
@@ -169,8 +169,8 @@ bar {
     statusline #FFFFFF
     separator  #666666
 
-    focused_workspace  #84377D #77216F #FFFFFF
-    active_workspace   #411934 #2C001E #FFFFFF
+    focused_workspace  #84377D #2C001E #FFFFFF
+    active_workspace   #411934 #56334B #FFFFFF
     inactive_workspace #333333 #56334B #888888
     urgent_workspace   #2F343A #900000 #FFFFFF
     binding_mode       #2F343A #900000 #FFFFFF
@@ -178,7 +178,7 @@ bar {
 	status_command i3status
 }
 #set background
-exec --no-startup-id feh --bg-scale /home/jelle/Pictures/wallpaper.jpg 
+exec --no-startup-id feh --bg-scale /home/jelle/Pictures/2048.jpg 
 
 #set dmenu-scripts
 bindsym $mod+p exec /home/jelle/Projects/dotfiles/dmenuscripts/dshutdown
@@ -186,4 +186,9 @@ bindsym $mod+p exec /home/jelle/Projects/dotfiles/dmenuscripts/dshutdown
 #print screen optionality
 bindsym Print exec --no-startup-id scrot -e 'mv $f /home/jelle/Pictures/Screenshots/$f'
 bindsym $mod+Print exec --no-startup-id scrot -s -e 'mv $f /home/jelle/Pictures/Screenshots/$f' 
-bindsym $mod+n exec --no-startup-id ffplay -nodisp /home/jelle/Music/SoundEffects/wobbly-alarm.mp3
+
+# make unmute and mute work on thinkpad laptop
+bindsym XF86AudioMute exec amixer set Master toggle; exec amixer set Speaker toggle 
+
+# custom workspace launchers
+bindsym $mod+m workspace 5; split v; exec /usr/bin/gnome-terminal --working-directory=/home/jelle/Projects/websites/hardboard-2.0 -- sudo docker-compose up; exec /usr/bin/gnome-terminal --working-directory=/home/jelle/Projects/websites/hardboard-2.0 -- sudo docker exec -it hardboard-20_web_1 bash

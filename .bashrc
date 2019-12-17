@@ -147,6 +147,12 @@ bind '"\C-o":"ranger-cd\C-m"'
 alias pip='pip3' 
 alias python='python3'
 alias apython='/home/jelle/Programs/anaconda2/bin/python'
+alias fnbright='sudo /home/jelle/Projects/Scripts/change_brightness.sh' 
+
+# Docker compose aliases
+alias dockup='sudo docker-compose up'
+alias dockbuild='sudo docker-compose build' 
+alias dockexec='sudo docker exec -it'
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/jelle/Programs/anaconda2/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
