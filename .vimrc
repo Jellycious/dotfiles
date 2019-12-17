@@ -57,7 +57,7 @@ filetype plugin indent on
 colorscheme gruvbox
 "Make sure YouCompleteMe does it thing correctly
 let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <space>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "Proper python indentation"
 au BufNewFile,BufRead *.py
