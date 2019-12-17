@@ -1,6 +1,7 @@
 " My Configuration: python friendly, ranger, vundle
 " These are the vim settings I use 
 " Author: Jelle Meijer
+"
 " Aesthetic settings
 " Requires the gruvbox.vim colorscheme!
 set encoding=utf-8
@@ -27,7 +28,7 @@ nnoremap <space> za
 
 "Arbitrary settings
 set ignorecase
-
+set nohlsearch
 "VUNDLE"
 
 set nocompatible
