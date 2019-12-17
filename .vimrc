@@ -25,6 +25,9 @@ set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
 
+"Arbitrary settings
+set ignorecase
+
 "VUNDLE"
 
 set nocompatible
@@ -47,7 +50,8 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'kien/ctrlp.vim'
 "Git integration"
 Plugin 'tpope/vim-fugitive'
-
+" Smooth scroll
+Plugin 'terryma/vim-smooth-scroll'
 "color schemes"
 Plugin 'morhetz/gruvbox'
 
@@ -58,7 +62,11 @@ colorscheme gruvbox
 "Make sure YouCompleteMe does it thing correctly
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
+"Map smooh scroll to buttons
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR> 
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 2)<CR> 
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 2)<CR> 
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 2)<CR> 
 "Proper python indentation"
 au BufNewFile,BufRead *.py
             \ set tabstop=4     |
