@@ -26,7 +26,7 @@ set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
 
-"Arbitrary settings
+" Search settings
 set ignorecase
 set nohlsearch
 "VUNDLE"
