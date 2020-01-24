@@ -178,7 +178,7 @@ bar {
 	status_command i3status
 }
 #set background
-exec --no-startup-id feh --bg-scale /home/jelle/Pictures/2048.jpg 
+exec --no-startup-id feh --bg-scale /home/jelle/Pictures/wallpaper.jpg 
 
 #set dmenu-scripts
 bindsym $mod+p exec /home/jelle/Projects/dotfiles/dmenuscripts/dshutdown
@@ -191,4 +191,4 @@ bindsym $mod+Print exec --no-startup-id scrot -s -e 'mv $f /home/jelle/Pictures/
 bindsym XF86AudioMute exec amixer set Master toggle; exec amixer set Speaker toggle 
 
 # custom workspace launchers
-bindsym $mod+m workspace 5; split v; exec /usr/bin/gnome-terminal --working-directory=/home/jelle/Projects/websites/hardboard-2.0 -- sudo docker-compose up; exec /usr/bin/gnome-terminal --working-directory=/home/jelle/Projects/websites/hardboard-2.0 -- sudo docker exec -it hardboard-20_web_1 bash
+bindsym $mod+m workspace 5; split v; exec /usr/bin/gnome-terminal --working-directory=/home/jelle/Projects/websites/hardboard-2.0 -- docker-compose up; exec /usr/bin/gnome-terminal --working-directory=/home/jelle/Projects/websites/hardboard-2.0 -- docker exec -it hardboard-20_web_1 bash
