@@ -33,3 +33,5 @@ nm-applet &
 # Flux
 fluxgui &
 
+
+export PATH="$HOME/.cargo/bin:$PATH"
