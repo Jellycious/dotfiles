@@ -187,8 +187,10 @@ bindsym $mod+p exec /home/jelle/Projects/dotfiles/dmenuscripts/dshutdown
 bindsym Print exec --no-startup-id scrot -e 'mv $f /home/jelle/Pictures/Screenshots/$f'
 bindsym $mod+Print exec --no-startup-id scrot -s -e 'mv $f /home/jelle/Pictures/Screenshots/$f' 
 
-# make unmute and mute work on thinkpad laptop
+# lenovo thinkpad laptop key bindings. 
 bindsym XF86AudioMute exec amixer set Master toggle; exec amixer set Speaker toggle 
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 5+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 5- unmute"
 
 # custom workspace launchers
 bindsym $mod+m workspace 5; split v; exec /usr/bin/gnome-terminal --working-directory=/home/jelle/Projects/websites/hardboard-2.0 -- docker-compose up; exec /usr/bin/gnome-terminal --working-directory=/home/jelle/Projects/websites/hardboard-2.0 -- docker exec -it hardboard-20_web_1 bash
