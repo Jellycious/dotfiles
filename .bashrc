@@ -149,6 +149,11 @@ alias python='python3'
 alias apython='/home/jelle/Programs/anaconda2/bin/python'
 alias fnbright='sudo /home/jelle/Projects/Scripts/change_brightness.sh' 
 
+# Python Virtual Environment Settings
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source $HOME/.local/bin/virtualenvwrapper.sh
+
 # Docker compose aliases
 alias dockup='docker-compose up'
 alias dockbuild='docker-compose build' 
@@ -171,3 +176,14 @@ unset __conda_setup
 # Make vim standard editor
 VISUAL=vim; export VISUAL EDITOR=vim; export EDITOR
 
+# Remap middle mouse button
+alias remapmmb="xmodmap -e 'pointer = 1 9 3 4 5 6 7 8 2'"
+
+# Add cabal binaries to path
+export PATH="/home/jelle/.cabal/bin/:$PATH"
+
+# Nix
+. ~/.nix-profile/etc/profile.d/nix.sh
+# Direnv
+
+export QSYS_ROOTDIR="/home/jelle/.altera/19.1.0/quartus/sopc_builder/bin"
