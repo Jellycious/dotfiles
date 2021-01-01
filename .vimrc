@@ -5,6 +5,8 @@
 " Aesthetic settings
 " Requires the gruvbox.vim colorscheme!
 set encoding=utf-8
+set fileencodings=utf-8
+set termencoding=utf-8
 set termguicolors
 set title
 set bg=dark
@@ -26,13 +28,14 @@ set foldmethod=indent
 set foldlevel=99
 nnoremap <space> za
 
-" Search settings
+" Clipboard
+set clipboard=unnamedplus
+"Arbitrary settings
 set ignorecase
 set nohlsearch
 "VUNDLE"
 
 set nocompatible
-filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -47,27 +50,50 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'scrooloose/nerdtree'
 "Syntax Highlighting"
 Plugin 'vim-syntastic/syntastic'
+"Rust Support"
+Plugin 'rust-lang/rust.vim'
 "Search from inside vim"
 Plugin 'kien/ctrlp.vim'
 "Git integration"
 Plugin 'tpope/vim-fugitive'
-" Smooth scroll
+" Smooth scroll"
 Plugin 'terryma/vim-smooth-scroll'
 "color schemes"
 Plugin 'morhetz/gruvbox'
+"Powerline"
+Plugin 'powerline/powerline'
+"Haskell vim
+Plugin 'neovimhaskell/haskell-vim'
 
 call vundle#end()
 filetype plugin indent on
+
 "Set colorscheme"
 colorscheme gruvbox
+
 "Make sure YouCompleteMe does it thing correctly
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_server_python_interpreter="/usr/bin/python3"
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"Powerline
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
+set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+" Always show statusline
+set laststatus=2
+" Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set t_Co=256
+
+
 "Map smooh scroll to buttons
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR> 
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 2)<CR> 
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 2)<CR> 
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 2)<CR> 
+
 "Proper python indentation"
 au BufNewFile,BufRead *.py
             \ set tabstop=4     |
@@ -78,11 +104,28 @@ au BufNewFile,BufRead *.py
             \ set fileformat=unix
 
 au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
 "map NerdTree"
 map <C-n> :NERDTreeToggle<CR>
+
+"Haskell plugin settings
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+
+
 "make code pretty"
 let python_highlight_all=1
 syntax on
+
+"Synastic Options
+let g:syntastic_python_flake8_args = "--ignore=E501"
+let g:syntastic_rust_checkers = ['rustc', 'cargo']
+
 
 " RANGERCHOOSER "
 function! RangeChooser()
@@ -116,6 +159,30 @@ function! RangeChooser()
 endfunction
 command! -bar RangerChooser call RangeChooser()
 nnoremap <leader>r :<C-U>RangerChooser<CR>
+
+" Runs the haskell interpreter for the current file ghci.
+" If the file contains Clash.Prelude it will execute clashi instead.
+function! HaskellInterpreter()
+    let save_cursor = getcurpos()
+    call cursor(1, 1)
+    let last_line = line('$')
+    let search_result = search("Clash.Prelude", "c", last_line)
+    call setpos('.', save_cursor)
+    let res = search_result ? 1 : 0
+
+    if res == 0
+        "Start normal haskell interpreter"
+        :w
+        :! ghci %
+    else
+        :w
+        :! clashi %
+    endif
+endfunction
+command! HaskellInterpreter call HaskellInterpreter()
+autocmd FileType haskell nnoremap <leader>i :<C-U>HaskellInterpreter<CR>
+autocmd FileType rust nnoremap <leader>i :<C-U>RustRun<CR>
+
 
 " DEFAULTS: 
 " An example for a vimrc file.
@@ -158,7 +225,7 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
-  " For all text files set 'textwidth' to 78 characters.
+  " For all text files set 'textwidth' to 78 cskharacters.
   autocmd FileType text setlocal textwidth=78
 
   augroup END
@@ -178,5 +245,4 @@ endif " has("autocmd")
 if has('syntax') && has('eval')
   packadd! matchit
 endif
-
 

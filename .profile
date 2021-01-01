@@ -29,9 +29,18 @@ fi
 
 #Run programs on startup
 #Network manager applet
+# TODO: DON't open twice
 nm-applet &
 # Flux
+# TODO: DON't open twice
 fluxgui &
 
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+#Remap middle mouse button to side button
+xmodmap -e 'pointer = 1 9 3 4 5 6 7 8 2' &> /dev/null
+
+
+export QSYS_ROOTDIR="/home/jelle/.altera/19.1.0/quartus/sopc_builder/bin"
+if [ -e /home/jelle/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jelle/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
